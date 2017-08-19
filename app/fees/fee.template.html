@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="col-md-12">
+    <h1>Fee List</h1>
+      <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="text-center">FEEID</th>
+        <th class="text-center">Fee Name</th>
+        <th class="text-center">Description</th>
+        <th class="text-center">Fee Amount</th>
+        <th class="text-center">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fee of fees">
+        <td>{{ fee.id }}</td>
+        <td>{{ fee.name }}</td>
+        <td>{{ fee.description }}</td>
+        <td>{{ fee.price | currency:'USD':true:'1.0-2' }}</td>
+        <td>
+          <button class="btn btn-info"
+                        (click)="showEditFeeForm(fee)">
+                       <i class="fa fa-edit"></i>
+              </button>
+          <button class="btn btn-danger"
+                       (click)="removeFee(fee)">
+                       <i class="fa fa-minus"></i>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-success"
+               (click)="showAddFeeForm()"><i class="fa fa-plus"></i></button>
+  <br />
+  <br />
+
+  <form *ngIf="feeForm">
+    <h2>Add New Product</h2>
+    <p>ID: <input type="text"
+                           name="id"
+                           [(ngModel)]="newFee.id" /></p>
+    <p>Name: <input type="text"
+                                 name="name"
+                                 [(ngModel)]="newFee.name" /></p>
+    <p>Description: <input type="text"
+                                          name="description"
+                                          [(ngModel)]="newFee.description" /></p>
+    <p>Price: <input type="text"
+                                name="price"
+                                [(ngModel)]="newFee.price" /></p>
+    <p>
+      <button type="button"
+                   class="btn btn-primary"
+                   (click)="saveFee(newFee)">Submit</button>
+      <button type="button"
+                   class="btn btn-warning"
+                   (click)="cancelNewFee()">Cancel</button>
+    </p>
+   </form>
+
+    <form *ngIf="editFeeForm">
+    <h2>Edit Product Details</h2>
+    <p>ID: <input type="text"
+                           name="id"
+                           [(ngModel)]="editedFee.id" /></p>
+    <p>Name: <input type="text"
+                                 name="name"
+                                 [(ngModel)]="editedFee.name" /></p>
+    <p>Description: <input type="text"
+                                          name="description"
+                                          [(ngModel)]="editedFee.description" /></p>
+    <p>Price: <input type="text"
+                                name="price"
+                                [(ngModel)]="editedFee.price" /></p>
+    <p>
+      <button type="button"
+                   class="btn btn-primary"
+                   (click)="updateFee(editedFee)">Submit</button>
+      <button type="button"
+                   class="btn btn-warning"
+                   (click)="cancelEdits()">Cancel</button>
+    </p>
+   </form>
+  </div>
+</div>
