@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
-        this.appName = "loanDepot Angular 2 Fee Prototype";
+        this.appName = "Angular 2 Fee Prototype";
     }
     return AppComponent;
 }());
