@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  appName: string = "loanDepot Angular 2 Fee Prototype";
+  appName: string = "Angular 2 Fee Prototype";
 }
